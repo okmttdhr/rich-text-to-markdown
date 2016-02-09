@@ -32,17 +32,14 @@ class HomePage extends React.Component {
           events: ['input', 'change', 'DOMSubtreeModified']
         }, (md) => {
           markDownEl.textContent = md
+          localStorage.setItem('markdown', markDownEl.textContent)
         })
       }
     }).subscribe('editableInput', function (e, editable) {
       localStorage.setItem('editable', e.target.innerHTML)
     })
-    if (localStorage.getItem('editable')) {
-      editableEl[0].innerHTML = localStorage.getItem('editable')
-    } else {
-      editableEl[0].innerHTML = readmeText
-      localStorage.setItem('editable', readmeText)
-    }
+    editableEl[0].innerHTML = localStorage.getItem('editable') || readmeText
+    // localStorage.setItem('editable', readmeText)
   }
 
   toggleModalShow() {
@@ -56,6 +53,7 @@ class HomePage extends React.Component {
         <div className='editor'>
           <div className='editable'></div>
           <pre className='markdown'></pre>
+          <CopyBtn />
         </div>
         <div className='footer'>
           <ul>
@@ -65,7 +63,6 @@ class HomePage extends React.Component {
             </li>
           </ul>
         </div>
-        <CopyBtn text={'text'} />
         <Modal html={readmeText} isShow={this.state.isModalShow} toggleShow={::this.toggleModalShow} />
       </div>
     )

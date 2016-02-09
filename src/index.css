@@ -19,6 +19,7 @@ h1 {
   justify-content: center;
   border-bottom: 1px solid #57ad68;
   padding: 0 0 40px 0;
+  position: relative;
 }
 
 .editable {
@@ -104,4 +105,44 @@ h1 {
   margin: auto;
   background-color: #fff;
   border-radius: 3px;
+}
+
+.CopyBtn {
+  display: none;
+  position: absolute;
+  right: 16px;
+  top: 31px;
+
+  border: none;
+  border-radius: 2px;
+  color: #000;
+  font-size: 12px;
+  height: 28px;
+  line-height: 28px;
+  min-width: 45px;
+  padding: 0 16px;
+  margin: 0;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  overflow: hidden;
+  will-change: box-shadow;
+  transition: box-shadow .2s cubic-bezier(.4,0,1,1),background-color .2s cubic-bezier(.4,0,.2,1),color .2s cubic-bezier(.4,0,.2,1);
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  vertical-align: middle;
+  background: rgb(76, 175, 80);
+  color: #fff;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+}
+
+.CopyBtn:hover {
+  opacity: 0.8;
+  display: inline-block;
+}
+
+.markdown:hover + .CopyBtn {
+  display: inline-block;
 }
