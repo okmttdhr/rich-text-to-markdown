@@ -5,6 +5,7 @@ import Clipboard from 'clipboard'
 class CopyBtn extends React.Component {
   constructor() {
     super()
+    this.timeoutId = null
     this.state = {
       copySccess: false
     }
@@ -15,7 +16,8 @@ class CopyBtn extends React.Component {
 
     clipboard.on('success', () => {
       this.setState({copySccess: true})
-      setTimeout(() => {
+      clearTimeout(this.timeoutId)
+      this.timeoutId = setTimeout(() => {
         this.setState({copySccess: false})
       }, 5000)
     })

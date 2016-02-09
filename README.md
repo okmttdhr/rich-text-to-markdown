@@ -10,6 +10,4 @@ Paste and edit rich text in the left box, then it'll be automatically converted 
 
 ## Memo
 
-* Copy Markdown
-* description
 * Kiji
