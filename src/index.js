@@ -6,6 +6,7 @@ import {
   Route,
   Application
 } from 'reactuate'
+import ReactDOM from 'react-dom'
 import MediumEditor from 'medium-editor'
 import MeMarkdown from 'medium-editor-markdown'
 
@@ -75,10 +76,11 @@ class HomePage extends React.Component {
   }
 }
 
-const routes = (
-  <Route component={App}>
-    <Route path='/' component={HomePage} />
-  </Route>
-)
+// const routes = (
+//   <Route component={App}>
+//     <Route path='/' component={HomePage} />
+//   </Route>
+// )
 
-new Application({routes}).render()
+ReactDOM.render(<HomePage/>, document.getElementById('app'))
+// new Application({routes}).render()
