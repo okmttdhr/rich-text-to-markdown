@@ -77,14 +77,18 @@ var jsLoaders = []
     plugins: plugins,
     postcss: function() {
       return [
-      require('postcss-import')({
-        resolve: function(id, base) {
-            return require('globby').sync(path.join(base, id))
-        },
-        onImport: function (files) {
-             files.forEach(this.addDependency)
-         }.bind(this)
-      }) ]
+        require('postcss-import')({
+          resolve: function(id, base) {
+              return require('globby').sync(path.join(base, id))
+          },
+          onImport: function (files) {
+               files.forEach(this.addDependency)
+           }.bind(this)
+        }),
+        require('autoprefixer')({ // ...and add vendor prefixes...
+          browsers: ['last 2 versions', 'IE > 8'] // ...supporting the last 2 major browser versions and IE 8 and up...
+        })
+      ]
     },
     output: {
       path: path.resolve(process.cwd(), 'build'),
