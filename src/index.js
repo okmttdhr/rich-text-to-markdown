@@ -56,7 +56,7 @@ class HomePage extends React.Component {
           <ul>
             <li onClick={::this.toggleModalShow}>About</li>
             <li>
-              <a target='_blank' href='http://ionicabizau.github.io/medium-editor-markdown/'>GitHub</a>
+              <a target='_blank' href='https://github.com/okmttdhr/rich-text-to-markdown'>GitHub</a>
             </li>
           </ul>
         </div>

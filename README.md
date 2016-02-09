@@ -7,3 +7,9 @@ Paste and edit rich text in the left box, then it'll be automatically converted 
 * React
 * Reactuate
 * Medium Editor
+
+## Future
+
+* Copy Markdown
+* description
+* css autprefix
