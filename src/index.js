@@ -9,6 +9,8 @@ import {
 import MediumEditor from 'medium-editor'
 import MeMarkdown from 'medium-editor-markdown'
 
+import readmeText from './readme'
+
 class App extends React.Component {
   render() {
     return <div>{this.props.children}</div>
@@ -35,7 +37,8 @@ class HomePage extends React.Component {
     }).subscribe('editableInput', function (e, editable) {
       localStorage.setItem('editable', e.target.innerHTML)
     })
-    editableEl[0].innerHTML = localStorage.getItem('editable') || 'text here'
+    // editableEl[0].innerHTML = localStorage.getItem('editable') || readmeText
+    editableEl[0].innerHTML = readmeText
   }
 
   render() {
