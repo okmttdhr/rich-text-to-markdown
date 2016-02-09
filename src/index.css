@@ -40,17 +40,68 @@ h1 {
 }
 
 .footer {
-  display: flex;
-  justify-content: center;
-}
-
-.footer a {
-  text-decoration: none;
-  color: #000;
-  font-size: 15px;
   padding: 40px 0;
 }
 
-.footer a:hover {
+.footer ul {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer ul li {
+  color: #000;
+  font-size: 15px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.footer ul li:hover {
   text-decoration: underline;
+}
+
+.footer ul li:last-child {
+  margin-right: 0px;
+}
+
+.footer a {
+  color: #000;
+  text-decoration: none;
+}
+
+.Modal {
+  display: none;
+}
+
+.Modal.isShow {
+  display: block;
+}
+
+
+.Modal__overlay {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.Modal__content {
+  padding: 0 25px;
+  width: 500px;
+  height: 300px;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-color: #fff;
+  border-radius: 3px;
 }

@@ -10,6 +10,7 @@ import MediumEditor from 'medium-editor'
 import MeMarkdown from 'medium-editor-markdown'
 
 import readmeText from './readme'
+import Modal from './modal'
 
 class App extends React.Component {
   render() {
@@ -18,11 +19,18 @@ class App extends React.Component {
 }
 
 class HomePage extends React.Component {
-  componentDidMount() {
-    this.initMediumEditor()
+  constructor() {
+    super()
+    this.state = {
+      isModalShow: false
+    }
   }
 
-  initMediumEditor() {
+  componentDidMount() {
+    this._initMediumEditor()
+  }
+
+  _initMediumEditor() {
     const editableEl = document.querySelectorAll('.editable')
     const markDownEl = document.querySelector('.markdown')
     const editor = new MediumEditor(editableEl, {
@@ -37,8 +45,12 @@ class HomePage extends React.Component {
     }).subscribe('editableInput', function (e, editable) {
       localStorage.setItem('editable', e.target.innerHTML)
     })
-    // editableEl[0].innerHTML = localStorage.getItem('editable') || readmeText
-    editableEl[0].innerHTML = readmeText
+    editableEl[0].innerHTML = localStorage.getItem('editable') || readmeText
+    // editableEl[0].innerHTML = readmeText
+  }
+
+  toggleModalShow() {
+    this.setState({isModalShow: !this.state.isModalShow})
   }
 
   render() {
@@ -50,8 +62,14 @@ class HomePage extends React.Component {
           <pre className='markdown'></pre>
         </div>
         <div className='footer'>
-          <a target='_blank' href='http://ionicabizau.github.io/medium-editor-markdown/'>GitHub</a>
+          <ul>
+            <li onClick={::this.toggleModalShow}>About</li>
+            <li>
+              <a target='_blank' href='http://ionicabizau.github.io/medium-editor-markdown/'>GitHub</a>
+            </li>
+          </ul>
         </div>
+        <Modal html={readmeText} isShow={this.state.isModalShow} toggleShow={::this.toggleModalShow} />
       </div>
     )
   }
