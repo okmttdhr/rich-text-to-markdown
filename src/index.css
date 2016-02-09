@@ -1,0 +1,22 @@
+.container {
+  width: 960px;
+  margin: 30px auto;
+}
+
+h1 {
+  font-size: 40px;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 70px;
+  margin-bottom: 40px;
+  padding-bottom: 30px;
+  letter-spacing: -2px;
+  border-bottom: 1px solid #57ad68;
+}
+
+.editable {
+  outline: none;
+  margin: 0 0 20px 0;
+  padding: 0 0 20px 0;
+  border-bottom: 1px solid #57ad68;
+}
