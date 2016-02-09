@@ -46,6 +46,9 @@ class HomePage extends React.Component {
           <div className='editable'></div>
           <pre className='markdown'></pre>
         </div>
+        <div className='footer'>
+          <a target='_blank' href='http://ionicabizau.github.io/medium-editor-markdown/'>GitHub</a>
+        </div>
       </div>
     )
   }

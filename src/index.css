@@ -18,13 +18,13 @@ h1 {
   display: flex;
   justify-content: center;
   border-bottom: 1px solid #57ad68;
+  padding: 0 0 40px 0;
 }
 
 .editable {
   width: 50%;
   font-size: 15px;
   outline: none;
-  margin: 0 0 20px 0;
   padding: 16px 0;
 }
 
@@ -37,4 +37,20 @@ h1 {
   border-radius: 3px;
   word-wrap: break-word;
   margin-left: 10px;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+}
+
+.footer a {
+  text-decoration: none;
+  color: #666;
+  font-size: 15px;
+  padding: 40px 0;
+}
+
+.footer a:hover {
+  text-decoration: underline;
 }
