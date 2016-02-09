@@ -27,6 +27,9 @@ class HomePage extends React.Component {
     const markDownEl = document.querySelector('.markdown')
     const editor = new MediumEditor(editableEl, {
       targetBlank: true,
+      paste: {
+        forcePlainText: false
+      },
       extensions: {
         markdown: new MeMarkdown({
           events: ['input', 'change', 'DOMSubtreeModified']
