@@ -11,7 +11,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "reactuate": "^0.1.16",
-    "medium-editor": "^5.14.1"
+    "reactuate": "^0.1.16"
+  },
+  "dependencies": {
+    "medium-editor": "^5.14.1",
+    "medium-editor-markdown": "^2.3.1"
   }
 }

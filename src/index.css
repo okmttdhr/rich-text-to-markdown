@@ -14,9 +14,27 @@ h1 {
   border-bottom: 1px solid #57ad68;
 }
 
+.editor {
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid #57ad68;
+}
+
 .editable {
+  width: 50%;
+  font-size: 14px;
   outline: none;
   margin: 0 0 20px 0;
-  padding: 0 0 20px 0;
-  border-bottom: 1px solid #57ad68;
+  padding: 16px 0;
+}
+
+.markdown {
+  width: 50%;
+  font-size: 14px;
+  padding: 16px;
+  overflow: auto;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+  word-wrap: break-word;
+  margin-left: 10px;
 }
