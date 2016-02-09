@@ -3,14 +3,9 @@ import 'medium-editor/dist/css/themes/default.css'
 import {
   React,
   Route,
-  Application,
-  connect,
-  bindActionCreators
+  Application
 } from 'reactuate'
 import MediumEditor from 'medium-editor'
-
-import counter from './counter'
-import counterAsync from './counter/async'
 
 class App extends React.Component {
   render() {
@@ -23,7 +18,7 @@ class HomePage extends React.Component {
     const elements = document.querySelectorAll('.editable')
     const editor = new MediumEditor(elements)
   }
-  
+
   render() {
     return (
       <div>
@@ -33,14 +28,10 @@ class HomePage extends React.Component {
   }
 }
 
-HomePage = connect(state => ({counter: state.counter.counter}),
-                   dispatch => ({actions:
-                     bindActionCreators({...counter.actions, ...counterAsync.actions}, dispatch)}))(HomePage)
-
 const routes = (
   <Route component={App}>
     <Route path="/" component={HomePage} />
   </Route>
 )
 
-new Application({routes, domains: {counter, counterAsync}}).render()
+new Application({routes}).render()
