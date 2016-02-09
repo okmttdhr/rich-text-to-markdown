@@ -22,7 +22,7 @@ h1 {
 
 .editable {
   width: 50%;
-  font-size: 14px;
+  font-size: 15px;
   outline: none;
   margin: 0 0 20px 0;
   padding: 16px 0;
@@ -30,7 +30,7 @@ h1 {
 
 .markdown {
   width: 50%;
-  font-size: 14px;
+  font-size: 15px;
   padding: 16px;
   overflow: auto;
   background-color: #f7f7f7;

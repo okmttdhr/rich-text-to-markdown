@@ -21,9 +21,10 @@ class HomePage extends React.Component {
   }
 
   initMediumEditor() {
-    const elements = document.querySelectorAll('.editable')
+    const editableEl = document.querySelectorAll('.editable')
     const markDownEl = document.querySelector('.markdown')
-    const editor = new MediumEditor(elements, {
+    const editor = new MediumEditor(editableEl, {
+      targetBlank: true,
       extensions: {
         markdown: new MeMarkdown({
           events: ['input', 'change', 'DOMSubtreeModified']
@@ -33,8 +34,8 @@ class HomePage extends React.Component {
       }
     }).subscribe('editableInput', function (e, editable) {
       localStorage.setItem('editable', e.target.innerHTML)
-    });
-    elements[0].innerHTML = localStorage.getItem('editable') || 'text here'
+    })
+    editableEl[0].innerHTML = localStorage.getItem('editable') || 'text here'
   }
 
   render() {

@@ -1,5 +1,5 @@
 {
-  "name": "reacture-test",
+  "name": "rich-text-to-markdown",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,7 +8,7 @@
     "start": "node node_modules/reactuate/webpack-dev-server.js",
     "build": "NODE_ENV=production webpack --config node_modules/reactuate/default-webpack-config.js --progress --colors"
   },
-  "author": "",
+  "author": "okp",
   "license": "ISC",
   "devDependencies": {
     "reactuate": "^0.1.16"
