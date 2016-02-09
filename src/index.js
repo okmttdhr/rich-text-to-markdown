@@ -1,23 +1,13 @@
 import 'medium-editor/dist/css/medium-editor.css'
 import 'medium-editor/dist/css/themes/flat.css'
 import './index.css'
-import {
-  React,
-  Route,
-  Application
-} from 'reactuate'
+import {React} from 'reactuate'
 import ReactDOM from 'react-dom'
 import MediumEditor from 'medium-editor'
 import MeMarkdown from 'medium-editor-markdown'
 
 import readmeText from './readme'
 import Modal from './modal'
-
-class App extends React.Component {
-  render() {
-    return <div>{this.props.children}</div>
-  }
-}
 
 class HomePage extends React.Component {
   constructor() {
@@ -76,11 +66,4 @@ class HomePage extends React.Component {
   }
 }
 
-// const routes = (
-//   <Route component={App}>
-//     <Route path='/' component={HomePage} />
-//   </Route>
-// )
-
 ReactDOM.render(<HomePage/>, document.getElementById('app'))
-// new Application({routes}).render()
