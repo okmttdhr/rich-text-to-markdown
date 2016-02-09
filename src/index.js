@@ -8,6 +8,7 @@ import MeMarkdown from 'medium-editor-markdown'
 
 import readmeText from './readme'
 import Modal from './modal'
+import CopyBtn from './copy-btn'
 
 class HomePage extends React.Component {
   constructor() {
@@ -36,8 +37,12 @@ class HomePage extends React.Component {
     }).subscribe('editableInput', function (e, editable) {
       localStorage.setItem('editable', e.target.innerHTML)
     })
-    editableEl[0].innerHTML = localStorage.getItem('editable') || readmeText
-    // editableEl[0].innerHTML = readmeText
+    if (localStorage.getItem('editable')) {
+      editableEl[0].innerHTML = localStorage.getItem('editable')
+    } else {
+      editableEl[0].innerHTML = readmeText
+      localStorage.setItem('editable', readmeText)
+    }
   }
 
   toggleModalShow() {
@@ -60,6 +65,7 @@ class HomePage extends React.Component {
             </li>
           </ul>
         </div>
+        <CopyBtn text={'text'} />
         <Modal html={readmeText} isShow={this.state.isModalShow} toggleShow={::this.toggleModalShow} />
       </div>
     )
