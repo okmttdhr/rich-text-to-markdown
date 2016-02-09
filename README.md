@@ -12,4 +12,3 @@ Paste and edit rich text in the left box, then it'll be automatically converted 
 
 * Copy Markdown
 * description
-* css autprefix
