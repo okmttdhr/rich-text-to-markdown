@@ -12,6 +12,7 @@ class ResetEditableBtn extends React.Component {
   componentDidMount() {}
 
   _resetEditable() {
+    if (this.state.resetSccess) return
     const confirm = window.confirm('Is it ok to reset your text?')
     if (!confirm) return
     const {editableElSelecter, readmeText} = this.props
