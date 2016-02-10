@@ -52,6 +52,7 @@ class HomePage extends React.Component {
     this.setState({isModalShow: !this.state.isModalShow})
   }
 
+
   render() {
     return (
       <div className='container'>
