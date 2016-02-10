@@ -165,8 +165,14 @@ h1 {
   display: inline-block;
 }
 
+.LeftMobileOutOverlay {
+  display: none;
+}
+
+
 @media only screen and (max-width: 768px) {
   .LeftMobileOutOverlay {
+    display: block;
     position: fixed;
     width: 100vw;
     height: 100vh;
