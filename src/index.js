@@ -14,6 +14,8 @@ import ResetEditableBtn from './reset-editable-btn'
 class HomePage extends React.Component {
   constructor() {
     super()
+    this.editableElSelecter = '.editable'
+    this.markDownElSelecter = '.markdown'
     this.state = {
       isModalShow: false
     }
@@ -24,8 +26,8 @@ class HomePage extends React.Component {
   }
 
   _initMediumEditor() {
-    const editableEl = document.querySelector('.editable')
-    const markDownEl = document.querySelector('.markdown')
+    const editableEl = document.querySelector(this.editableElSelecter)
+    const markDownEl = document.querySelector(this.markDownElSelecter)
     const editor = new MediumEditor(editableEl, {
       targetBlank: true,
       paste: {
@@ -55,7 +57,7 @@ class HomePage extends React.Component {
         <h1>Rich Text to Markdown</h1>
         <div className='editor'>
           <div className='editable'></div>
-          <ResetEditableBtn editableElSelecter={'.editable'} readmeText={readmeText} />
+          <ResetEditableBtn editableElSelecter={this.editableElSelecter} readmeText={readmeText} />
           <pre className='markdown'></pre>
           <CopyMarkdownBtn />
         </div>

@@ -11,10 +11,15 @@ class ResetEditableBtn extends React.Component {
 
   componentDidMount() {}
 
-  handlereset() {
+  _resetEditable() {
     const {editableElSelecter, readmeText} = this.props
     const editableEl = document.querySelector(editableElSelecter)
     editableEl.innerHTML = readmeText
+    localStorage.setItem('editable', readmeText)
+    this._changeText()
+  }
+
+  _changeText() {
     this.setState({resetSccess: true})
     clearTimeout(this.timeoutId)
     this.timeoutId = setTimeout(() => {
@@ -24,8 +29,8 @@ class ResetEditableBtn extends React.Component {
 
   render() {
     return (
-      <div className='ResetEditableBtn' onClick={::this.handlereset}>
-        {this.state.resetSccess ? 'Resetted' : 'Reset'}
+      <div className='ResetEditableBtn' onClick={::this._resetEditable}>
+        {this.state.resetSccess ? 'Done' : 'Reset'}
       </div>
     )
   }
