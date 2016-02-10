@@ -165,16 +165,18 @@ h1 {
   display: inline-block;
 }
 
-.LeftMobileOutOverlay {
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: #fff;
-  text-align: center;
-  padding-top: 30vh;
-  font-size: 14px;
+@media only screen and (max-width: 768px) {
+  .LeftMobileOutOverlay {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    text-align: center;
+    padding-top: 30vh;
+    font-size: 14px;
+  }
 }
