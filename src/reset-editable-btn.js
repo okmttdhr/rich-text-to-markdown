@@ -3,7 +3,6 @@ import {React} from 'reactuate'
 class ResetEditableBtn extends React.Component {
   constructor() {
     super()
-    this.timeoutId = null
     this.state = {
       resetSccess: false
     }
@@ -24,8 +23,7 @@ class ResetEditableBtn extends React.Component {
 
   _changeText() {
     this.setState({resetSccess: true})
-    clearTimeout(this.timeoutId)
-    this.timeoutId = setTimeout(() => {
+    setTimeout(() => {
       this.setState({resetSccess: false})
     }, 5000)
   }
