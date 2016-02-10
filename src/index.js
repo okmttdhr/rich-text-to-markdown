@@ -10,6 +10,7 @@ import readmeText from './readme'
 import Modal from './modal'
 import CopyMarkdownBtn from './copy-markdown-btn'
 import ResetEditableBtn from './reset-editable-btn'
+import LeftMobileOutOverlay from './left-mobile-out-overlay'
 
 class HomePage extends React.Component {
   constructor() {
@@ -70,6 +71,7 @@ class HomePage extends React.Component {
           </ul>
         </div>
         <Modal html={readmeText} isShow={this.state.isModalShow} toggleShow={::this.toggleModalShow} />
+        <LeftMobileOutOverlay />
       </div>
     )
   }
