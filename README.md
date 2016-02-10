@@ -11,5 +11,4 @@ Paste and edit rich text in the left box, then it'll be automatically converted 
 ## Memo
 
 * Kiji
-* reset btn
 * left mobile out
