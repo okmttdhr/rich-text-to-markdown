@@ -2,7 +2,7 @@ import {React} from 'reactuate'
 import classnames from 'classnames'
 import Clipboard from 'clipboard'
 
-class CopyBtn extends React.Component {
+class CopyMarkdownBtn extends React.Component {
   constructor() {
     super()
     this.timeoutId = null
@@ -12,7 +12,7 @@ class CopyBtn extends React.Component {
   }
 
   componentDidMount() {
-    const clipboard = new Clipboard('.CopyBtn')
+    const clipboard = new Clipboard('.CopyMarkdownBtn')
 
     clipboard.on('success', () => {
       this.setState({copySccess: true})
@@ -31,7 +31,7 @@ class CopyBtn extends React.Component {
   render() {
     return (
       <div
-        className='CopyBtn'
+        className='CopyMarkdownBtn'
         data-clipboard-text={localStorage.getItem('markdown') || 'Edit your rich text.'}>
         {this.state.copySccess ? 'Copied' : 'Copy'}
       </div>
@@ -39,4 +39,4 @@ class CopyBtn extends React.Component {
   }
 }
 
-export default CopyBtn
+export default CopyMarkdownBtn

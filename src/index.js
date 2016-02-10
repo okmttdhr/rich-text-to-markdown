@@ -8,13 +8,16 @@ import MeMarkdown from 'medium-editor-markdown'
 
 import readmeText from './readme'
 import Modal from './modal'
-import CopyBtn from './copy-btn'
+import CopyMarkdownBtn from './copy-markdown-btn'
+import ResetEditableBtn from './reset-editable-btn'
 
 class HomePage extends React.Component {
   constructor() {
     super()
     this.state = {
-      isModalShow: false
+      isModalShow: false,
+      editableEl: null,
+      markDownEl: null,
     }
   }
 
@@ -23,9 +26,17 @@ class HomePage extends React.Component {
   }
 
   _initMediumEditor() {
-    const editableEl = document.querySelectorAll('.editable')
-    const markDownEl = document.querySelector('.markdown')
-    const editor = new MediumEditor(editableEl, {
+    // this.setState({
+      // editableEl: 'aaa',
+      // markDownEl: 'aaa',
+    // })
+    // this.setState({isModalShow: 'text'})
+    this.setState({
+      editableEl: document.querySelector('.editable'),
+      markDownEl: document.querySelector('.markdown'),
+    })
+    console.log(this.state)
+    const editor = new MediumEditor(this.state.editableEl, {
       targetBlank: true,
       paste: {
         forcePlainText: false
@@ -34,15 +45,14 @@ class HomePage extends React.Component {
         markdown: new MeMarkdown({
           events: ['input', 'change', 'DOMSubtreeModified']
         }, (md) => {
-          markDownEl.textContent = md
-          localStorage.setItem('markdown', markDownEl.textContent)
+          this.state.markDownEl.textContent = md
+          localStorage.setItem('markdown', this.state.markDownEl.textContent)
         })
       }
     }).subscribe('editableInput', function (e, editable) {
       localStorage.setItem('editable', e.target.innerHTML)
     })
-    editableEl[0].innerHTML = localStorage.getItem('editable') || readmeText
-    // localStorage.setItem('editable', readmeText)
+    this.state.editableEl.innerHTML = localStorage.getItem('editable') || readmeText
   }
 
   toggleModalShow() {
@@ -55,8 +65,9 @@ class HomePage extends React.Component {
         <h1>Rich Text to Markdown</h1>
         <div className='editor'>
           <div className='editable'></div>
+          <ResetEditableBtn editableEl={this.state.editableEl} readmeText={readmeText} />
           <pre className='markdown'></pre>
-          <CopyBtn />
+          <CopyMarkdownBtn />
         </div>
         <div className='footer'>
           <ul>
