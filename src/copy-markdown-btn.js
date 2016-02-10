@@ -31,7 +31,7 @@ class CopyMarkdownBtn extends React.Component {
   render() {
     return (
       <div
-        className='CopyMarkdownBtn'
+        className='CopyMarkdownBtn mdBtn--green'
         data-clipboard-text={localStorage.getItem('markdown') || 'Edit your rich text.'}>
         {this.state.copySccess ? 'Copied' : 'Copy'}
       </div>

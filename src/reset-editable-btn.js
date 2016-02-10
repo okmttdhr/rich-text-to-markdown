@@ -12,6 +12,8 @@ class ResetEditableBtn extends React.Component {
   componentDidMount() {}
 
   _resetEditable() {
+    const confirm = window.confirm('Is it ok to reset your text?')
+    if (!confirm) return
     const {editableElSelecter, readmeText} = this.props
     const editableEl = document.querySelector(editableElSelecter)
     editableEl.innerHTML = readmeText
@@ -29,7 +31,7 @@ class ResetEditableBtn extends React.Component {
 
   render() {
     return (
-      <div className='ResetEditableBtn' onClick={::this._resetEditable}>
+      <div className='ResetEditableBtn mdBtn--green' onClick={::this._resetEditable}>
         {this.state.resetSccess ? 'Done' : 'Reset'}
       </div>
     )
