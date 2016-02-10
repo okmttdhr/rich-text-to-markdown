@@ -15,9 +15,7 @@ class HomePage extends React.Component {
   constructor() {
     super()
     this.state = {
-      isModalShow: false,
-      editableEl: null,
-      markDownEl: null,
+      isModalShow: false
     }
   }
 
@@ -26,17 +24,9 @@ class HomePage extends React.Component {
   }
 
   _initMediumEditor() {
-    // this.setState({
-      // editableEl: 'aaa',
-      // markDownEl: 'aaa',
-    // })
-    // this.setState({isModalShow: 'text'})
-    this.setState({
-      editableEl: document.querySelector('.editable'),
-      markDownEl: document.querySelector('.markdown'),
-    })
-    console.log(this.state)
-    const editor = new MediumEditor(this.state.editableEl, {
+    const editableEl = document.querySelector('.editable')
+    const markDownEl = document.querySelector('.markdown')
+    const editor = new MediumEditor(editableEl, {
       targetBlank: true,
       paste: {
         forcePlainText: false
@@ -45,14 +35,14 @@ class HomePage extends React.Component {
         markdown: new MeMarkdown({
           events: ['input', 'change', 'DOMSubtreeModified']
         }, (md) => {
-          this.state.markDownEl.textContent = md
-          localStorage.setItem('markdown', this.state.markDownEl.textContent)
+          markDownEl.textContent = md
+          localStorage.setItem('markdown', markDownEl.textContent)
         })
       }
     }).subscribe('editableInput', function (e, editable) {
       localStorage.setItem('editable', e.target.innerHTML)
     })
-    this.state.editableEl.innerHTML = localStorage.getItem('editable') || readmeText
+    editableEl.innerHTML = localStorage.getItem('editable') || readmeText
   }
 
   toggleModalShow() {
@@ -65,7 +55,7 @@ class HomePage extends React.Component {
         <h1>Rich Text to Markdown</h1>
         <div className='editor'>
           <div className='editable'></div>
-          <ResetEditableBtn editableEl={this.state.editableEl} readmeText={readmeText} />
+          <ResetEditableBtn editableElSelecter={'.editable'} readmeText={readmeText} />
           <pre className='markdown'></pre>
           <CopyMarkdownBtn />
         </div>

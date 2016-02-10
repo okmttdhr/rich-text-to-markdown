@@ -12,7 +12,8 @@ class ResetEditableBtn extends React.Component {
   componentDidMount() {}
 
   handlereset() {
-    const {editableEl, readmeText} = this.props
+    const {editableElSelecter, readmeText} = this.props
+    const editableEl = document.querySelector(editableElSelecter)
     editableEl.innerHTML = readmeText
     this.setState({resetSccess: true})
     clearTimeout(this.timeoutId)
