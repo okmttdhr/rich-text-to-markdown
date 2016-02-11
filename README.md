@@ -4,11 +4,9 @@ Paste and edit rich text in the left box, then it'll be automatically converted 
 
 ## Stack
 
-* React
-* Reactuate
-* Medium Editor
+* <a href="https://github.com/reactuate/reactuate" target="_blank">Reactuate</a>
+* <a href="https://github.com/yabwe/medium-editor" target="_blank">Medium Editor</a>
 
 ## Memo
 
 * Kiji
-* left mobile out
